@@ -8,7 +8,7 @@ const CountryContainer = styled.div`
   width: 250px;
   background-color: #fffcfc;
   border-radius: 7px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: var(--box-shadow-light);
 `
 const CountryName = styled.h2`
   font-size: 0.9rem;
