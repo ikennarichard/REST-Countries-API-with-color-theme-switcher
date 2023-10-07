@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap');
+
+:root {
+  font-family: 'Nunito Sans', sans-serif;
+  line-height: 1.5;
+  font-synthesis: none;
+  --homepage-font-size: 0.85rem;
+  --detail-font-size: 0.75rem;
+  --dark-blue-dark-elements: hsl(209, 23%, 22%);
+  --very-dark-blue-dark-bg: hsl(207, 26%, 17%);
+  --very-dark-blue-light-text: hsl(200, 15%, 8%);
+  --dark-gray-light-input: hsl(0, 0%, 52%);
+  --very-light-gray-light-bg: hsl(0, 0%, 98%);
+  --white-dark-text-light-elements: hsl(0, 0%, 100%);
+  --box-shadow-light: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --box-shadow-dark: rgba(0, 0, 0, 0.18) 0px 2px 4px;;
+}
+
+.light-theme {
+  --text-primary: var(--very-dark-blue-light-text);
+  --elements: var(--white-dark-text-light-elements);
+  --bg-primary: var(--very-light-gray-light-bg);
+  /* --input: var(--dark-gray-light-input); */
+  --shadow: var(--box-shadow-light);
+  
+}
+
+.dark-theme {
+  --text-primary: var(--white-dark-text-light-elements);
+  --elements: var(--dark-blue-dark-elements);
+  --bg-primary: var(--very-dark-blue-dark-bg);
+  /* --input: var(var(--dark-gray-light-input)); */
+  --shadow: var(--box-shadow-dark);
+}
+
+*, *::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100dvh;
+  line-height: 1.5;
+  display: grid;
+  /* justify-content: center; */
+  scroll-behavior: smooth;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-width: 375px;
+  justify-content: space-between;
+  background-color: var(--elements);
+  height: 80px;
+  padding-inline: 1em;
+  box-shadow: var(--shadow);
+  animation: fadeIn 1s;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  min-height: 100dvh;
+  animation: fadeIn 1s;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.custom-link {
+  all: unset;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.custom-link:hover {
+  scale: 1.05;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+strong {
+  font-weight: 700;
+}
+
+input::placeholder {
+  color: var(--text-primary);
+}
+
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease;
+}
+
+.border-country {
+  all: unset;
+}
+
+.back-arrow:hover {
+  filter: brightness(120%);
+  transition: all 0.5s ease;
+}
+/* generic styles */
+
+.flex {
+  display: flex;
+  gap: 3px;
+  padding-bottom: 0.7em;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.titles {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 300;
+  font-size: var(--homepage-font-size);
+}
+
+.btn {
+  all: unset;
+  background-color: var(--elements);
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7em;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .mg-2 {
+    margin-top: 2.8em;
+  }
+
+  .mg-1 {
+    margin-top: 1em;
+  }
+}
+
+
+/* loading animation */
+
+.circle {
+  position: absolute;
+  border: 3px solid transparent;
+  border-top-color: var(--very-dark-blue-light-text);
+  border-radius: 50%;
+  animation: rotate linear infinite;
+}
+
+.circle.one {
+  height: 50px;
+  width: 50px;
+  left: 50px;
+  top: 50px;
+  animation-duration: 0.85s;
+}
+
+.circle.two {
+  height: 75px;
+  width: 75px;
+  top: 38px;
+  left: 38px;
+  animation-duration: 0.95s;
+}
+
+.circle.three {
+  height: 100px;
+  width: 100px;
+  top: 25px;
+  left: 25px;
+  animation-duration: 1.05s;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateZ(360deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -90px 0 0 -90px;
+}
