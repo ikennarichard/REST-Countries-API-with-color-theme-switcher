@@ -34,14 +34,6 @@ export const ThemeProvider = ({children}) => {
     refreshTheme();
   }, [theme]);
 
-  useEffect(() => {
-    const refreshTheme = () => {
-      localStorage.setItem("theme", theme);
-    };
-
-    refreshTheme();
-  }, [theme]);
-
   return (
     <ThemeContext.Provider value={{ theme, setTheme, toggleDarkMode}}>
       {children}
