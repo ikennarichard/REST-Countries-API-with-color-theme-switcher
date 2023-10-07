@@ -55,7 +55,7 @@ header {
   justify-content: space-between;
   background-color: var(--elements);
   height: 80px;
-  padding-inline: 1em;
+  padding-inline: 2em;
   box-shadow: var(--shadow);
   animation: fadeIn 1s;
 }
