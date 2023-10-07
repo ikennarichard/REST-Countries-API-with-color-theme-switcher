@@ -119,7 +119,7 @@ input::placeholder {
   filter: brightness(120%);
   transition: all 0.5s ease;
 }
-/* generic styles */
+/* utility classes */
 
 .flex {
   display: flex;
