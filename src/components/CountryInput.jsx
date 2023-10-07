@@ -10,6 +10,7 @@ const Container = styled.div`
   gap: 1em;
   width: max(200px, 94%);
   margin-left: 0.85em;
+  margin-top: 1.5em;
   @media (min-width: 768px) {
     width: 100%;
     padding-inline: 1em;
