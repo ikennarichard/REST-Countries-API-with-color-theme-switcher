@@ -37,37 +37,39 @@ export default function CountryDetails() {
     display: flex;
     flex-direction: column;
     gap: 3em;
+    width: 100%;
     padding-top: 1em;
     color: var(--text-primary);
-    height: 100dvh;
+    min-height: 100dvh;
+    padding-left: 1.5em;
+    @media(min-width: 1000px) {
+      max-width: 1200px;
+    }
   `
 
   const DetailsWrapper = styled.div`
     display: flex;
     gap: 1em;
     flex-direction: column;
-    @media (min-width: 768px) {
+    justify-content: center;
+    @media (min-width: 1030px) {
       flex-direction: row;
-      justify-content: space-around;
-      gap: 5em;
+      justify-content: flex-start;
+      gap: 3em;
     }
   `
   const Details = styled.div`
     display: flex;
-    gap: 1em;
+    gap: 0.7em;
     flex-direction: column;
     word-spacing: 2px;
 
     @media (min-width:768px) {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      max-width: 700px;
     }
   `
-  const Flag = styled.img`
-    width: 270px;
-    height: max(160px, 100%);
-  `
-
   const icon_theme = {
     filter: theme === 'dark-theme' ?  '' :
     'invert(72%) sepia(6%) saturate(3985%) hue-rotate(168deg) brightness(89%) contrast(86%)',
@@ -75,12 +77,15 @@ export default function CountryDetails() {
     marginTop: '-0.2em',
   }
 
-  const wrapper = {
-    width: '100%',
-    display: 'grid',
-    justifyContent: 'center',
-    backgroundColor: 'var(--bg-primary)',
-  }
+  const Wrapper = styled.div`
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    background-color: var(--bg-primary);
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  `
 
 
   
@@ -90,12 +95,12 @@ export default function CountryDetails() {
     {isLoading ? <p>Loading</p> :
 
     item.map((country) => (
-    <div key={nanoid()} style={wrapper}>
+    <Wrapper key={nanoid()}>
       <DetailsContainer >
 
         <Link
           to={`/`}
-          className="back-arrow btn"
+          className="brightness-2 btn"
           style={{ width: '70px'}}
         ><img 
             src={BackArrow} 
@@ -107,7 +112,7 @@ export default function CountryDetails() {
 
         <DetailsWrapper>
           <div>
-            <Flag 
+            <img 
               src={country.flags.png}
               alt={`${country.name.official} Flag`}
             />
@@ -139,7 +144,7 @@ export default function CountryDetails() {
             </div>
 
             {/* lower details */}
-            <div className="flex-column mg-2">
+            <div className="flex-column self-center">
               <p className="titles">
                 <strong>Top Level Domain:</strong>
                 {country.tld[0]}
@@ -166,7 +171,7 @@ export default function CountryDetails() {
                   <div className="flex">
                     {country.borders.map((c) => (
                       
-                        <button key={nanoid()} className="btn">
+                        <button key={nanoid()} className="brightness-2 btn">
                         <Link
                           to={`/country/${c.toLowerCase()}`}
                           onClick={() => handleClick(c)}
@@ -185,7 +190,7 @@ export default function CountryDetails() {
           </Details>
           </DetailsWrapper>
       </DetailsContainer>
-    </div>
+    </Wrapper>
     ))}
     </>
   )

@@ -30,7 +30,7 @@ export default function Homepage({countries, isLoading, isError, error }) {
     gap: 1em;
     width: 100%;
     margin-top: 2em;
-    @media (min-width: 768px) {
+    @media (min-width: 500px) {
       flex-direction: row;
       flex-wrap: wrap;
       row-gap: 2em;
@@ -43,7 +43,6 @@ export default function Homepage({countries, isLoading, isError, error }) {
     list-style: none;
     flex: 1;
     @media (min-width: 768px) {
-      /* height: 300px; */
       flex-basis: 50%;
     }
   `

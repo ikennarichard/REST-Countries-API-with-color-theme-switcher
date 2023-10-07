@@ -115,7 +115,7 @@ input::placeholder {
   all: unset;
 }
 
-.back-arrow:hover {
+.brightness-2:hover {
   filter: brightness(120%);
   transition: all 0.5s ease;
 }
@@ -136,7 +136,7 @@ input::placeholder {
 .titles {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 5px;
   font-weight: 300;
   font-size: var(--homepage-font-size);
 }
@@ -161,6 +161,10 @@ input::placeholder {
 
   .mg-1 {
     margin-top: 1em;
+  }
+
+  .self-center {
+    align-self: center;
   }
 }
 
