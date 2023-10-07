@@ -7,7 +7,7 @@ const CountryContainer = styled.div`
   flex-direction: column;
   gap: 5px;
   width: 220px;
-  height: 330px;
+  height: 320px;
   background-color: var(--elements);
   border-radius: 7px;
   box-shadow: var(--shadow);
@@ -25,6 +25,9 @@ const CountryDetails = styled.div`
   padding-bottom: 2em;
   margin-top: 0.5em;
   color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 `
 
 export default function Country({country}) {
