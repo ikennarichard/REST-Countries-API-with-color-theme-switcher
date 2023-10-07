@@ -87,12 +87,10 @@ export default function CountryDetails() {
     }
   `
 
-
-  
   return (
     <>
     {isError && error.message}
-    {isLoading ? <p>Loading</p> :
+    {isLoading ? <p className="place-center">Loading...</p> :
 
     item.map((country) => (
     <Wrapper key={nanoid()}>

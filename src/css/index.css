@@ -115,10 +115,6 @@ input::placeholder {
   all: unset;
 }
 
-.brightness-2:hover {
-  filter: brightness(120%);
-  transition: all 0.5s ease;
-}
 /* utility classes */
 
 .flex {
@@ -152,6 +148,20 @@ input::placeholder {
   justify-content: center;
   padding: 0.7em;
   cursor: pointer;
+}
+
+.brightness-2:hover {
+  filter: brightness(120%);
+  transition: all 0.5s ease;
+}
+
+.place-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 @media (min-width: 768px) {
