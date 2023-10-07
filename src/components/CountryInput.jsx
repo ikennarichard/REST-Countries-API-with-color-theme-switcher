@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState, useRef } from "react"
 import styled from "styled-components";
 import { nanoid } from "nanoid";
@@ -7,42 +8,57 @@ const Container = styled.div`
   position: relative;
   flex-direction: column;
   gap: 1em;
-  width: 100%;
+  width: max(200px, 94%);
+  margin-left: 0.85em;
+  @media (min-width: 768px) {
+    width: 100%;
+    padding-inline: 1em;
+  }
 `
 const FormContainer = styled.form`
-  width: 90%;
   margin-top: 0.7em;
 `
 const SearchInput = styled.input`
   padding: 1.2em;
   width: 100%;
-  box-shadow: var(--box-shadow-light);
+  box-shadow: var(--shadow);
   border: none;
   border-radius: 5px;
   outline: none;
+  background-color: var(--elements);
+  color: var(--text-primary);
+  @media (min-width: 768px) {
+    width: 35%;
+  }
 `
 const SelectRegionContainer = styled.div`
-  width: 60%;
+  width: 200px;
   display: flex;
   flex-direction: column;
   gap: 5px;
   position: absolute;
   top: 4em;
+  @media (min-width: 768px) {
+    right: 2em;
+    top: 0.7em;
+    width: 20%;
+  }
 `
 const SelectRegionHeader = styled.p`
   border-radius: 5px;
-  background-color: white;
+  background-color: var(--elements);
+  color: var(--text-primary);
   padding: 1em;
   font-size: var(--homepage-font-size);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: var(--box-shadow-light);
+  box-shadow: var(--shadow);
 `
 const SelectRegionList = styled.ul`
   list-style: none;
-  background-color: white;
+  background-color: var(--bg-primary);
   display: grid;
   gap: 5px;
   padding: 0.65em;
@@ -57,9 +73,10 @@ const SelectRegion = styled.li`
   cursor: pointer;
   transition: all 0.2s linear;
   width: 100%;
+  color: var(--text-primary);
   &:hover {
-    background-color: var(--dark-blue-dark-elements);
-    color: white;
+    background-color: var(--text-primary);
+    color: var(--elements);
   }
 `
 
@@ -89,7 +106,7 @@ export default function CountryInput({ sendDataToParent, sendRegionToParent }) {
           type="text"
           value={countryName}
           onChange={(e) => handleInputChange(e)}
-          placeholder="Search for a country"
+          placeholder="Search for a country..."
         >
         </SearchInput>
       </FormContainer>
@@ -98,7 +115,7 @@ export default function CountryInput({ sendDataToParent, sendRegionToParent }) {
         <SelectRegionHeader
           onClick={() => setShow(prev => !prev)}
         >
-          { regionName.current ? regionName.current : 'Find country by region'}
+          { regionName.current ? regionName.current : 'Filter by region'}
           <svg
             viewBox="0 0 24 24"
             fill="currentColor"
