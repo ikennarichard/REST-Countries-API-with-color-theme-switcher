@@ -1,14 +1,30 @@
-import CountryInput from "./components/CountryInput"
+import Homepage from "./components/Homepage";
+import { useQuery } from 'react-query';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CountryDetails from "./pages/details";
+import Layout from "./layout/Layout";
 
 function App() {
+  const { data: countries, isLoading, isError, error } = useQuery({
+    queryKey: ['countries'],
+  });
+  
   return (
-    <main>
-      <header>
-        <h1>Where in the world</h1>
-        <div><img src="./assets/" alt="" /></div>
-      </header>
-      <CountryInput/>
-    </main>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout data={countries} />}>
+          <Route index element={
+          <Homepage
+            isError={isError}
+            isLoading={isLoading}
+            countries={countries}
+            error={error}
+          />} />
+          <Route path="/country/:code" element={
+          <CountryDetails/>}/>
+        </Route>
+      </Routes>
+    </Router> 
   )
 }
 
