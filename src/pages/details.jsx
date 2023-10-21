@@ -24,9 +24,9 @@ export default function CountryDetails() {
   }
 
   const getName = (c) => {
-    let item = countries?.filter((element) => element.cca3 === c)
-    let [country] = item;
-    return country.name.common
+    let filtered = countries?.filter((country) => country.cca3 == c)
+    let [country] = filtered;
+    return country.name.common;
   }
 
   useEffect(() => {
