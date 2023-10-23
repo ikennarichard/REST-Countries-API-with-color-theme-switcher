@@ -114,7 +114,6 @@ beforeEach( async () => {
 describe('App', () => {
 
   it('renders the homepage with two countries', () => {
-    screen.debug()
     expect(screen.getByText('Republic of Serbia')).toBeInTheDocument();
   });
 
@@ -122,8 +121,8 @@ describe('App', () => {
     
     fireEvent.click(screen.getByText('Republic of Serbia'));
     await screen.findByText('Border Countries:');
-    
-    screen.debug();
+
     expect(screen.getByText('Border Countries:')).toBeInTheDocument();
+    expect(screen.getByText('Cameroon')).toBeInTheDocument();
   });
 });
